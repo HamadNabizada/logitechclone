@@ -51,9 +51,9 @@ export default function Statement(){
     }
     return (
         <div onMouseEnter={pauseSlide} onMouseLeave={resumeSlide} ref={statementRef} className={style.wrapper}>
-            <div onClick={goDownArray} className={style.left}>&#x3c;</div>
+            <div onClick={goDownArray} className={style.left}>&lsaquo;</div>
             {statementsArray[counter]}
-            <div onClick={goUpArray} className={style.right}>&#x3e;</div>
+            <div onClick={goUpArray} className={style.right}>&rsaquo;</div>
         </div>
     )
 }
