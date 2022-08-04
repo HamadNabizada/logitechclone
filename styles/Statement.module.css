@@ -1,0 +1,48 @@
+.wrapper{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: .6rem;
+    font-size: .9rem;
+}
+.left{
+    font-size: 2rem;
+    color:#b8bbbd;
+    cursor: pointer;
+    transition: all .4s;
+    user-select: none;
+}
+.left:hover{
+    transition: all .4s;
+    color:black;
+}
+.right{
+    font-size: 2rem;
+    color:#b8bbbd;
+    cursor: pointer;
+    transition: all .4s;
+    user-select: none;
+}
+.right:hover{
+    transition: all .4s;
+    color:black;
+}
+.transitionLeft{
+    animation: leftTransition .4s forwards;
+}
+.transitionRight{
+    animation: rightTransition .4s forwards;
+}
+@keyframes leftTransition {
+    100%{
+        transform: translateX(200px);
+        color: white;
+    }
+}
+@keyframes rightTransition {
+    100%{
+        transform: translateX(-200px);
+        color: white;
+    }
+}

@@ -1,5 +1,9 @@
 .wrapper{
     display:flex;
+    flex-direction: column;
+}
+.linksWrapper{
+    display:flex;
     flex-direction: row;
     width: 100vw;
     background-color: #1c1c1c;
@@ -10,7 +14,8 @@
 .myLinks{
     display:flex;
     flex-direction: row;
-    padding: 1rem;
+    padding: .6rem;
+    gap: .2rem;
 }
 .linkItem{
     list-style-type: none;
