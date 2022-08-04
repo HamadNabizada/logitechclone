@@ -1,4 +1,49 @@
 .wrapper{
     display:flex;
     flex-direction: row;
+    width: 100vw;
+    background-color: #1c1c1c;
+    color: #878787;
+    align-items: center;
+    justify-content: space-around;
+}
+.myLinks{
+    display:flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+.linkItem{
+    list-style-type: none;
+    border-left: 1px solid gray;
+    padding: .2rem 1rem .2rem 1rem;
+}
+.linkItem > img {
+    cursor: pointer;
+}
+.linkItem:first-child{
+    border-left: none;
+}
+.logitechLogo{
+    width:51.5px;
+    height:20px;
+}
+.astroLogo{
+    width: 67px;
+    height: 20px;
+}
+.blueLogo{
+    width: 26.2px;
+    height: 20px;
+}
+.streamlabsLogo{
+    width: 85.6px;
+    height: 20px;
+}
+.ueLogo{
+    width: 42.6px;
+    height: 20px;
+}
+.jaybirdLogo{
+    width: 76.6px;
+    height: 20px;
 }
