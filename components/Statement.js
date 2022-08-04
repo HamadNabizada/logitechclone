@@ -1,17 +1,24 @@
 import style from '../styles/Statement.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function Statement(){
+    let [autoPlay, setAutoPlay] = useState(true)
+    let currentRef = useRef()
+    let timeout = null
+    let statementRef = useRef()
+    useEffect(()=>{
+        timeout = autoPlay && setTimeout(goUpArray, 4000)
+    })
     let statementsArray = [
-        <h4>FREE SHIPPING ON ORDERS OVER $29</h4>,
-        <h4>All products are certified carbon neutral</h4>,
-        <h4>Donate to Ukraine Crisis Relief Fund</h4>
+        <h4 ref={currentRef}>FREE SHIPPING ON ORDERS OVER $29</h4>,
+        <h4 ref={currentRef}>All products are certified carbon neutral</h4>,
+        <h4 ref={currentRef}>Donate to Ukraine Crisis Relief Fund</h4>
     ]
     let [counter, setCounter] = useState(0)
     function goUpArray(e){
-        e.target.previousElementSibling.className=style.transitionRight
+        currentRef.current.className=style.transitionRight
         setTimeout(()=>{
-            e.target.previousElementSibling.className=''
+            currentRef.current.className=''
         },400)
 
         setCounter( prevCounter=> {
@@ -23,9 +30,9 @@ export default function Statement(){
         })
     }
     function goDownArray(e){
-        e.target.nextElementSibling.className=style.transitionLeft
+        currentRef.current.className=style.transitionLeft
         setTimeout(()=>{
-            e.target.nextElementSibling.className=''
+            currentRef.current.className=''
         },400)
         setCounter( prevCounter=> {
             let newCounter = prevCounter - 1
@@ -35,9 +42,15 @@ export default function Statement(){
             return newCounter
         })
     }
-
+    function pauseSlide(){
+        setAutoPlay(false)
+        clearTimeout(timeout)
+    }
+    function resumeSlide(){
+        setAutoPlay(true)
+    }
     return (
-        <div className={style.wrapper}>
+        <div onMouseEnter={pauseSlide} onMouseLeave={resumeSlide} ref={statementRef} className={style.wrapper}>
             <div onClick={goDownArray} className={style.left}>&#x3c;</div>
             {statementsArray[counter]}
             <div onClick={goUpArray} className={style.right}>&#x3e;</div>
