@@ -3,10 +3,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding: .6rem;
     font-size: .9rem;
+    background-color: white;
 }
 .left{
+    margin-top:-10px;
     font-size: 2.6rem;
     color:#b8bbbd;
     cursor: pointer;
@@ -18,6 +19,7 @@
     color:black;
 }
 .right{
+    margin-top:-10px;
     font-size: 2.6rem;
     color:#b8bbbd;
     cursor: pointer;

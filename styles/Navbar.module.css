@@ -1,0 +1,13 @@
+.navbarMainWrapper{
+    display:flex;
+    flex-direction: column;
+    background-color: none;
+}
+.navbarSub{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
