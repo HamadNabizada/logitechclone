@@ -3,19 +3,65 @@
     flex-direction: column;
     background-color: none;
     width: 100vw;
-    height:8rem;
+    height:5.5rem;
     border: 1px solid red;
-    padding: 1rem;
+    padding-bottom:0px;
 }
 .navbarSub{
     height: 100%;
     display:flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-around;
+    padding-bottom: .4rem;
+
+}
+.menuBtnWrapper{
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+    gap: .4rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: all .4s;
+    height: 64px;
+}
+.menuBtnWrapperOpen{
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #00b8fc;
+    transition: all .4s;
+    height: 64px;
+}
+.menuLine{
+    border-bottom: 3px solid #bebebe;
+    width: 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .4s;
+}
+.menuLineWhite{
+    transition: all .4s;
+    border-color:white;
+}
+.menuTopLine{
+    transition: all .4s;
+    transform:translateY(.9rem) rotate(45deg);
+}
+.menuMiddleLine{
+    display:none;
+}
+.menuBottomLine{
+    position:absolute;
+    transition: all .4s;
+    transform:translateY(.9rem) rotate(-45deg);
 }
 .cartWrapper{
     display:flex;
+    align-self: center;
     flex-direction: row;
     gap: 1rem;
 }
