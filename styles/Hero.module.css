@@ -1,5 +1,4 @@
 .wrapper{
-    display:flex;
-    background-color: transparent;
-    height: 2000px;
+    border: 1px solid red;
+    color:white;
 }
