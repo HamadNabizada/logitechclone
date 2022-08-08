@@ -1,6 +1,7 @@
 .wrapper{
     display:flex;
     flex-direction: column;
+    height: 10vh;
 }
 .linksWrapper{
     display:flex;
@@ -10,6 +11,7 @@
     color: #878787;
     align-items: center;
     justify-content: space-around;
+    height: 5vh;
 }
 .myLinks{
     display:flex;

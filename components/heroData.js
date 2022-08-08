@@ -1,12 +1,12 @@
 let data = [
     {
-        imgSource: '/heroImages/Logitech-Aurora-Collection.JPG',
+        imgSource: "/heroImages/Logitech-Aurora-Collection.JPG",
         title: 'PLAY YOUR WAY',
         description: 'MEET THE AURORA COLLECTION',
         btnText: 'SHOP AND CUSTOMIZE NOW'
     },
     {
-        imgSource: '/heroImages/league.jpg',
+        imgSource: "/heroImages/league.jpg",
         title: 'PLAY WITH LEGENDS AND SAVE!',
         description: 'Buy Any 2 x Leage of Legend Products and get 15% off, buy 3 and get 30% off',
         btnText: 'EXPLORE LEAGE OF LEGENDS COLLECTION'

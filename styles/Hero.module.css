@@ -1,4 +1,19 @@
 .wrapper{
-    border: 1px solid red;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color:white;
+    height: 90vh;
+}
+.arrowsWrapper{
+    position:absolute;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:90%;
+    cursor: pointer;
+}
+.arrow{
+    font-size: 6rem;
 }

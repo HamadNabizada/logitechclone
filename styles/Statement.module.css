@@ -5,6 +5,7 @@
     justify-content: space-around;
     font-size: .9rem;
     background-color: white;
+    height:5vh;
 }
 .left{
     margin-top:-10px;

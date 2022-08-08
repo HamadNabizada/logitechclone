@@ -8,8 +8,8 @@ export default function Index() {
   return (
     <div className={style.wrapper}>
       <Header />
-      <Navbar />
       <Hero />
+      <Navbar />
     </div>
   )
 }
