@@ -11,9 +11,55 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width:90%;
     cursor: pointer;
 }
 .arrow{
     font-size: 6rem;
+    padding: 2rem;
+    border-radius:1rem;
+    cursor: pointer;
+    color: #00d9ff;
+}
+
+.arrowRight:hover{
+    animation: spinArrowRight 1s infinite;
+}
+.arrowLeft:hover{
+    animation: spinArrowLeft 1.6s infinite;
+}
+.arrowRight:active{
+    animation: none;
+}
+.arrowLeft:active{
+    animation: none;
+}
+@keyframes spinArrowRight {
+    15%{
+        transform: rotate(-20deg)
+    }
+    30%{
+        transform: rotate(20deg)
+    }
+    45%{
+        transform: rotate(-20deg)
+    }
+    60%{
+        transform: rotate(20deg)
+    }
+}
+@keyframes spinArrowLeft {
+    15%{
+        transform: rotate(20deg)
+    }
+    30%{
+        transform: rotate(-20deg)
+    }
+    45%{
+        transform: rotate(20deg)
+    }
+    60%{
+        transform: rotate(-20deg)
+    }
 }
