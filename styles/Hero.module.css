@@ -21,8 +21,8 @@
     border-radius:1rem;
     cursor: pointer;
     color: #00d9ff;
+    user-select: none;
 }
-
 .arrowRight:hover{
     animation: spinArrowRight 1s infinite;
 }

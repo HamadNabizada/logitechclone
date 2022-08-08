@@ -4,17 +4,12 @@ import { useState, useRef, useEffect } from 'react'
 
 export default function HeroCard(props){
     let heroBGRef = useRef()
-    let [myBG, setMyBG] = useState({})
-
-    useEffect(()=>{
-        setMyBG(
-            {
-                backgroundImage: `url(${props.imgSource})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover'
-            }
-    )},[])
+    let myBG = {
+        backgroundImage: `url(${props.imgSource})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+    }
     
     return(
         <div style={myBG} ref={heroBGRef} className={style.wrapper}>

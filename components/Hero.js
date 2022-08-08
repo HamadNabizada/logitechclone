@@ -15,10 +15,20 @@ export default function Hero(){
             return newCurrentCard
         })
     }
+    function prevBG(){
+        setCurrentCard(prevCurrentCard =>{
+            let newCurrentCard = prevCurrentCard - 1
+            console.log(newCurrentCard);
+            if (newCurrentCard === -1 ){
+                newCurrentCard = data.length -1
+            }
+            return newCurrentCard
+        })
+    }
     return( 
         <div className={style.wrapper}>
             <div className={style.arrowsWrapper}>
-                <p className={`${style.arrow} ${style.arrowLeft}`}>&lsaquo;</p>
+                <p onClick={prevBG} className={`${style.arrow} ${style.arrowLeft}`}>&lsaquo;</p>
                 <p onClick={nextBG} className={`${style.arrow} ${style.arrowRight}`}>&rsaquo;</p>
             </div>
             <HeroCard
