@@ -1,11 +1,14 @@
 import style from '../styles/Navbar.module.css'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Navbar(){
     let [iconHoverCart, setIconHoverCart] = useState(false)
     let [iconHoverSearch, setIconHoverSearch] = useState(false)
     let [menuHover, setMenuHover] = useState(false)
     let [isNavbarOpen, setIsNavbarOpen] = useState(false)
+    let lastScroll = useRef(0)
+    let subNavbar = useRef()
+
     function iconIsHoverCart(){
         setIconHoverCart(true)
     }
@@ -39,17 +42,35 @@ export default function Navbar(){
         cart: iconHoverCart ? "/icons/cart-w.svg" : "/icons/cart-g.svg",
         search: iconHoverSearch ? "/icons/search-w.svg" : "/icons/search-g.svg",
     }
+    useEffect(()=>{
+        window.addEventListener('scroll', handleScroll)
+    },[])
+
+    function handleScroll(){
+        let currentScroll = window.pageYOffset
+        if(currentScroll < lastScroll.current){
+            subNavbar.current.className = style.navbarSubTop
+        }
+        if(currentScroll === 0){
+            subNavbar.current.className = style.navbarSub
+        }
+        if(currentScroll > lastScroll.current && currentScroll > 185){
+            subNavbar.current.className = style.navbarSubHidden
+        }
+        
+        lastScroll.current = currentScroll
+    }
     return(
         <nav className={style.navbarMainWrapper}>
             <section className={style.allNav}></section>
-            <div className={style.navbarSub}>
+            <div ref={subNavbar} className={style.navbarSub}>
                 <div onClick={toggleNavbar} onMouseEnter={menuIsHovered} onMouseLeave={menuIsNotHovered} className={menuButtonStyles.hamburgerMenu}>
                     <div className={menuButtonStyles.hamburgerMenuTopLines}></div>
                     <div className={menuButtonStyles.hamburgerMenuMiddleLines}></div>
                     <div className={menuButtonStyles.hamburgerMenuBottomLines}></div>
                 </div>
                 <h2 className={style.logoWrapper}>
-                    <img className={style.logo} src="/icons/Logitech_logo.svg" alt="Logitech Logo" />
+                    <img className={style.logo} src="/icons/Logitech_logo-w.svg" alt="Logitech Logo" />
                 </h2>
                 <ul className={style.cartWrapper}>
                     <li onMouseEnter={iconIsHoverCart} onMouseLeave={iconIsNotHoverCart} className={style.cartSearch}><img className={style.icon} src={iconDisplay.cart} alt="Cart Icon" /></li>
