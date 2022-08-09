@@ -16,19 +16,25 @@
     cursor: pointer;
 }
 .arrow{
+    background-color: rgba(0, 0, 0, .8);
     font-size: 6rem;
-    padding: 2rem;
+    padding: .2rem 1rem .2rem 1rem;
     border-radius:1rem;
     cursor: pointer;
     color: #00d9ff;
     user-select: none;
+    transition: all .4s;
 }
-.arrowRight:hover{
+.arrow:hover{
+    transition: all .4s;
+    box-shadow: 1px 1px 10px 1px white;
+}
+/* .arrowRight:hover{
     animation: spinArrowRight 1s infinite;
 }
 .arrowLeft:hover{
     animation: spinArrowLeft 1.6s infinite;
-}
+} */
 .arrowRight:active{
     animation: none;
 }
@@ -62,4 +68,33 @@
     60%{
         transform: rotate(-20deg)
     }
+}
+
+.carouselButton{
+    min-width: 5vw;
+    position: absolute;
+    bottom:0px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: .8rem;
+    transition: all .4s;
+    padding: .5rem;
+    margin-bottom: 1.4rem;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 12px;
+}
+.bullet{
+
+    transition: all .4s;
+    border: 1px solid white;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color:white;
+    cursor: pointer;
+}
+.bulletActive{
+    background-color:transparent;
 }

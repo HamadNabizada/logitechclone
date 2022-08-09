@@ -1,10 +1,11 @@
 import style from '../styles/Hero.module.css'
 import data from './heroData.js'
 import HeroCard from './HeroCard'
-import { useState, useRef } from 'react'
+import { useState, useEffect} from 'react'
 
 export default function Hero(){
     let [currentCard, setCurrentCard] = useState(0)
+    let [bulletElement, setBulletElement] = useState('')
 
     function nextBG(){
         setCurrentCard(prevCurrentCard =>{
@@ -18,13 +19,29 @@ export default function Hero(){
     function prevBG(){
         setCurrentCard(prevCurrentCard =>{
             let newCurrentCard = prevCurrentCard - 1
-            console.log(newCurrentCard);
             if (newCurrentCard === -1 ){
                 newCurrentCard = data.length -1
             }
             return newCurrentCard
         })
     }
+    function setAsActiveBullet(e){
+        let indexText = e.target.id
+        let indexInt = parseInt(indexText)
+        setCurrentCard(indexInt)
+    }
+    useEffect(()=>{
+        setBulletElement(prev =>{
+            let newBulletElement = data.map((item,index)=>{
+                let bulletStyle = (index === currentCard) ? `${style.bullet} ${style.bulletActive}` : style.bullet
+                return(
+                    <div id={index} onClick={setAsActiveBullet} key={index} className={bulletStyle}></div>
+                )
+            })
+            return newBulletElement
+        })
+    },[currentCard])
+    
     return( 
         <div className={style.wrapper}>
             <div className={style.arrowsWrapper}>
@@ -37,6 +54,10 @@ export default function Hero(){
                 description={data[currentCard].description}
                 btnText={data[currentCard].btnText}
             />
+            <div className={style.carouselButton}>
+                {bulletElement}
+            </div>
         </div>
     )
 }
+
