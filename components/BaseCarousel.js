@@ -17,6 +17,14 @@ export default function BaseCarousel(props){
                 <p className={props.description}>{props.description}</p>
             </div>
             <div className={style.carouselContainerWrapper}>
+                <div className={style.arrowsWrapper}>
+                    <div className={style.arrowContainer}>
+                        <img className={style.arrowIcon} src="/icons/left_arrow.svg" alt="Left Arrow" />
+                    </div>
+                    <div className={style.arrowContainer}>
+                        <img className={style.arrowIcon} src="/icons/right_arrow.svg" alt="Left Arrow" />
+                    </div>
+                </div>
                 <div className={style.carouselItemWrapper}>
                     <div style={imgBG} className={style.imgContainer}>
                         <img className={style.productImg} src={productData[0].imgSource} alt="#" />
@@ -48,14 +56,16 @@ export default function BaseCarousel(props){
                     </div>
                 </div>
             </div>
-            <div className={style.arrowsWrapper}>
-                <div className={style.arrowContainer}>
-                    <img className={style.arrowIcon} src="/icons/left_arrow.svg" alt="Left Arrow" />
-                </div>
-                <div className={style.arrowContainer}>
-                    <img className={style.arrowIcon} src="/icons/right_arrow.svg" alt="Left Arrow" />
-                </div>
-            </div>
+
         </div>
     )
 }
+
+// <div className={style.arrowsWrapper}>
+// <div className={style.arrowContainer}>
+//     <img className={style.arrowIcon} src="/icons/left_arrow.svg" alt="Left Arrow" />
+// </div>
+// <div className={style.arrowContainer}>
+//     <img className={style.arrowIcon} src="/icons/right_arrow.svg" alt="Left Arrow" />
+// </div>
+// </div>
