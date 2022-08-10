@@ -1,14 +1,70 @@
 import style from '../styles/BaseCarousel.module.css'
 import productData from './productData.js'
+import { useState, useRef, useEffect } from 'react'
 
 
 export default function BaseCarousel(props){
+    let [selectedProduct, setSelectedProduct] = useState(0)
+    let [numOfProductPerGroup, setnumOfProductPerGroup] = useState(3)
+    let [productElements, setProductElements] = useState('')
+    let [imageGroup, setImageGroup] = useState(0)
+    let currentImage = useRef(null)
+
+    let itemArray = []
+    let groupingCounter = 0
+    for (let i = 0; i < productData.length; i++) {
+        let grouping = productData.slice(numOfProductPerGroup * groupingCounter, (numOfProductPerGroup * groupingCounter) + numOfProductPerGroup)
+        groupingCounter++
+        if(grouping.length !== 0){
+            itemArray.push(grouping)
+        }
+    }
+
     let wrapperStyle = {
         backgroundColor: props.BGColor,
         color: props.textColor
     }
     let imgBG = {
         backgroundColor: props.innerBGColor
+    }
+    let hoverStyle = {
+        textDecoration: 'underline'
+    }
+    function handleHover(e){
+        console.log('hover');
+    }
+    let carouselItemWrapperStyle = {
+
+    }
+
+    useEffect(()=>{
+        setProductElements(prevElements =>{
+            let newproductElements = itemArray[imageGroup].map((item,index) => {
+                return(
+                    <div key={index} id={index} onMouseEnter={handleHover} className={style.carouselItemWrapper}>
+                        <div style={imgBG} className={style.imgContainer}>
+                            <img className={style.productImg} src={item.imgSource} alt={item.product} />
+                        </div>
+                        <div className={style.productInfo}>
+                            <h4 className={style.productTitle}>{item.product}</h4>
+                            <p>{item.productItem}</p>
+                            <p>{item.price}</p>
+                        </div>
+                    </div>   
+                )
+            })
+            return newproductElements
+        })
+    }, [imageGroup])
+    function upOneGroup(){
+        setImageGroup(prev =>{
+            let newGroup = prev + 1
+            if(newGroup >= itemArray.length){
+                newGroup = 0
+            }
+            return newGroup
+        })
+        
     }
     return(
         <div style={wrapperStyle} className={style.wrapper}>
@@ -19,53 +75,16 @@ export default function BaseCarousel(props){
             <div className={style.carouselContainerWrapper}>
                 <div className={style.arrowsWrapper}>
                     <div className={style.arrowContainer}>
-                        <img className={style.arrowIcon} src="/icons/left_arrow.svg" alt="Left Arrow" />
+                        <img onClick={upOneGroup} className={style.arrowIcon} src="/icons/left_arrow.svg" alt="Left Arrow" />
                     </div>
                     <div className={style.arrowContainer}>
-                        <img className={style.arrowIcon} src="/icons/right_arrow.svg" alt="Left Arrow" />
+                        <img onClick={upOneGroup} className={style.arrowIcon} src="/icons/right_arrow.svg" alt="Left Arrow" />
                     </div>
                 </div>
-                <div className={style.carouselItemWrapper}>
-                    <div style={imgBG} className={style.imgContainer}>
-                        <img className={style.productImg} src={productData[0].imgSource} alt="#" />
-                    </div>
-                    <div className={style.productInfo}>
-                        <h4 className={style.productTitle}>{productData[0].product}</h4>
-                        <p>{productData[0].productItem}</p>
-                        <p>{productData[0].price}</p>
-                    </div>
-                </div>
-                <div className={style.carouselItemWrapper}>
-                    <div style={imgBG} className={style.imgContainer}>
-                        <img className={style.productImg} src={productData[0].imgSource} alt="#" />
-                    </div>
-                    <div className={style.productInfo}>
-                        <h4 className={style.productTitle}>{productData[0].product}</h4>
-                        <p>{productData[0].productItem}</p>
-                        <p>{productData[0].price}</p>
-                    </div>
-                </div>
-                <div className={style.carouselItemWrapper}>
-                    <div style={imgBG} className={style.imgContainer}>
-                        <img className={style.productImg} src={productData[0].imgSource} alt="#" />
-                    </div>
-                    <div className={style.productInfo}>
-                        <h4 className={style.productTitle}>{productData[0].product}</h4>
-                        <p>{productData[0].productItem}</p>
-                        <p>{productData[0].price}</p>
-                    </div>
-                </div>
+                {productElements}
             </div>
 
         </div>
     )
 }
 
-// <div className={style.arrowsWrapper}>
-// <div className={style.arrowContainer}>
-//     <img className={style.arrowIcon} src="/icons/left_arrow.svg" alt="Left Arrow" />
-// </div>
-// <div className={style.arrowContainer}>
-//     <img className={style.arrowIcon} src="/icons/right_arrow.svg" alt="Left Arrow" />
-// </div>
-// </div>

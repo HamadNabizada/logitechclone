@@ -21,7 +21,7 @@ let products = [
         imgSource: "/products/g840-gallery-1.webp",
         product: 'G840',
         productItem: 'XL Gaming Mouse Pad',
-        price: '$29.99-$49.99'
+        price: '$29.99 - $49.99'
     },
     {
         imgSource: "/products/x56-gallery-1.webp",
