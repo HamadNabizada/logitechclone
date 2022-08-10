@@ -11,7 +11,12 @@ export default function Index() {
       <Header />
       <Navbar />
       <Hero />
-      <BaseCrousel />
+      <BaseCrousel 
+        title = 'RECOMMENDED FOR YOU'
+        BGColor = '#2f3132'
+        innerBGColor = 'white'
+        textColor = 'white'
+      />
     </div>
   )
 }

@@ -36,3 +36,5 @@ let products = [
         price: '$49.99'
     }
 ]
+
+export default products
