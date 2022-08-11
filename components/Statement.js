@@ -10,9 +10,9 @@ export default function Statement(){
         timeout = autoPlay && setTimeout(goUpArray, 4000)
     })
     let statementsArray = [
-        <h4 ref={currentRef}>FREE SHIPPING ON ORDERS OVER $29</h4>,
-        <h4 ref={currentRef}>All products are certified carbon neutral</h4>,
-        <h4 ref={currentRef}>Donate to Ukraine Crisis Relief Fund</h4>
+        <h4 key={'statement1'} ref={currentRef}>FREE SHIPPING ON ORDERS OVER $29</h4>,
+        <h4 key={'statement2'} ref={currentRef}>All products are certified carbon neutral</h4>,
+        <h4 key={'statement3'} ref={currentRef}>Donate to Ukraine Crisis Relief Fund</h4>
     ]
     let [counter, setCounter] = useState(0)
     function goUpArray(e){
