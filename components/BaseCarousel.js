@@ -9,11 +9,11 @@ export default function BaseCarousel(props){
     let [productElements, setProductElements] = useState('')
     let [imageGroup, setImageGroup] = useState(0)
     let currentImage = useRef(null)
-
+    
     let itemArray = []
     let groupingCounter = 0
-    for (let i = 0; i < productData.length; i++) {
-        let grouping = productData.slice(numOfProductPerGroup * groupingCounter, (numOfProductPerGroup * groupingCounter) + numOfProductPerGroup)
+    for (let i = 0; i < props.productData.length; i++) {
+        let grouping = props.productData.slice(numOfProductPerGroup * groupingCounter, (numOfProductPerGroup * groupingCounter) + numOfProductPerGroup)
         groupingCounter++
         if(grouping.length !== 0){
             itemArray.push(grouping)
@@ -36,6 +36,10 @@ export default function BaseCarousel(props){
     let carouselItemWrapperStyle = {
 
     }
+    useEffect(()=>{
+        let chunkSize = parseInt(props.numOfProducts)
+        setnumOfProductPerGroup(chunkSize)
+    },[])
 
     useEffect(()=>{
         setProductElements(prevElements =>{
@@ -55,7 +59,7 @@ export default function BaseCarousel(props){
             })
             return newproductElements
         })
-    }, [imageGroup])
+    }, [imageGroup,numOfProductPerGroup])
     function upOneGroup(){
         setImageGroup(prev =>{
             let newGroup = prev + 1
