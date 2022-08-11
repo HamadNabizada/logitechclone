@@ -1,5 +1,4 @@
 import style from '../styles/BaseCarousel.module.css'
-import productData from './productData.js'
 import { useState, useRef, useEffect } from 'react'
 
 
@@ -9,7 +8,7 @@ export default function BaseCarousel(props){
     let [productElements, setProductElements] = useState('')
     let [imageGroup, setImageGroup] = useState(0)
     let currentImage = useRef(null)
-    
+    console.log(props.productData);
     let itemArray = []
     let groupingCounter = 0
     for (let i = 0; i < props.productData.length; i++) {

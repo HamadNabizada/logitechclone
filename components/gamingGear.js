@@ -60,3 +60,5 @@ let data = [
         buttonLink: 'https://www.logitechg.com/en-us/products/gamepads.html'
     }
 ]
+
+export default data

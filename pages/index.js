@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import BaseCrousel from '../components/BaseCarousel'
 import products from '../components/productData.js'
+import gamingGear from '../components/gamingGear.js'
 
 export default function Index() {
 
@@ -26,7 +27,7 @@ export default function Index() {
         BGColor = 'white'
         innerBGColor = '#3a3a3a'
         textColor = 'black'
-        productData = {products}
+        productData = {gamingGear}
         numOfProducts = '4'
       />
     </div>

@@ -39,6 +39,10 @@
 }
 .productImg{
     padding: 1rem;
+    max-width: 19rem;
+    width: 300px;
+    height: 230px;
+    object-fit: contain;
 }
 .productInfo{
     display:flex;
