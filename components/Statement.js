@@ -1,5 +1,6 @@
 import style from '../styles/Statement.module.css'
 import { useEffect, useState, useRef } from 'react'
+import {nanoid} from 'nanoid'
 
 export default function Statement(){
     let [autoPlay, setAutoPlay] = useState(true)
@@ -10,16 +11,17 @@ export default function Statement(){
         timeout = autoPlay && setTimeout(goUpArray, 4000)
     })
     let statementsArray = [
-        <h4 key={'statement1'} ref={currentRef}>FREE SHIPPING ON ORDERS OVER $29</h4>,
-        <h4 key={'statement2'} ref={currentRef}>All products are certified carbon neutral</h4>,
-        <h4 key={'statement3'} ref={currentRef}>Donate to Ukraine Crisis Relief Fund</h4>
+        <h4 key={nanoid()} ref={currentRef}>FREE SHIPPING ON ORDERS OVER $29</h4>,
+        <h4 key={nanoid()} ref={currentRef}>All products are certified carbon neutral</h4>,
+        <h4 key={nanoid()} ref={currentRef}>Donate to Ukraine Crisis Relief Fund</h4>
     ]
     let [counter, setCounter] = useState(0)
+    
     function goUpArray(e){
         currentRef.current.className=style.transitionRight
         setTimeout(()=>{
-            currentRef.current.className=''
-        },400)
+            currentRef.current.className=style.statement
+        },1000)
 
         setCounter( prevCounter=> {
             let newCounter = prevCounter + 1

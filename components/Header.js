@@ -7,7 +7,7 @@ export default function Header(){
         <div className={style.wrapper}>
             <div className={style.linksWrapper}>
                 <ul className={style.myLinks}>
-                    <li className={style.linkItem}><img className={style.logitechLogo} src="/images/logitechLogo.svg" alt="Logitech Logo" /></li>
+                    <li className={style.linkItem}><a href='https://www.logitech.com/en-us'><img className={style.logitechLogo} src="/images/logitechLogo.svg" alt="Logitech Logo" /></a></li>
                     <li className={style.linkItem}><img className={style.astroLogo} src="/images/astroLogo.svg" alt="Astro Logo" /></li>
                     <li className={style.linkItem}><img className={style.blueLogo} src="/images/blueLogo.svg" alt="Blue Logo" /></li>
                     <li className={style.linkItem}><img className={style.streamlabsLogo} src="/images/streamlabs-bottom.svg" alt="Streamlabs Logo" /></li>
